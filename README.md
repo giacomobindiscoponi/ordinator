@@ -32,5 +32,5 @@ script verrà _spostato_ nella sotto cartella di root che corrisponde alla propr
 ```
 
 ```
-.\scriptFinale docs html -backUp
+.\scriptFinale docs html
 ```
