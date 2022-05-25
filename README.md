@@ -6,10 +6,10 @@ fare una zip dei file desiderati.
 
 la sintassi è questa:
 ```
-.\scriptFinale [<estensioni> -backup][<estensioni> -move]
+.\scriptFinale [<estensioni>][<estensioni> -move]
 ```
 
-### __-backUp__
+### default
 usando il parametro __-backUp__ verrà creata una cartella di nome root,<br>
 dopo di che, per ogni estensione che abbaimo inserito come parametro, verrà creata<br>
 una sotto cartella in root con lo stesso nome. Poi tutti i file che si trovano nella<br>
