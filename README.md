@@ -24,7 +24,6 @@ una sotto cartella in root con lo stesso nome. Poi tutti i file che si trovano n
 stessa posizione dello script o in una sotto cartella sempre a partire della posizione dello<br>
 script verrà _spostato_ nella sotto cartella di root che corrisponde alla propria estensione.
 
-se nessuno di questi due parametri l'applicazione non partirà
 
 ## esempi
 ---
