@@ -10,7 +10,7 @@ la sintassi è questa:
 ```
 
 ### default
-usando il parametro __-backUp__ verrà creata una cartella di nome root,<br>
+inserendo soltanto delle estensioni verrà creata una cartella di nome root,<br>
 dopo di che, per ogni estensione che abbaimo inserito come parametro, verrà creata<br>
 una sotto cartella in root con lo stesso nome. Poi tutti i file che si trovano nella<br>
 stessa posizione dello script o in una sotto cartella sempre a partire della posizione dello<br>
