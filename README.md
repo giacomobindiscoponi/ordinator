@@ -29,7 +29,7 @@ dove verranno scritte tutte le operazioni eseguite
 
 ## Esempi
 ---
-```
+```powershell
 .\scriptFinale flp wav -move
 ```
 [prima](img/prima.PNG)<br>
@@ -37,7 +37,7 @@ dove verranno scritte tutte le operazioni eseguite
 [dopo](img/dopoMove.PNG)<br>
 [nella root](img/nellaRoot.PNG)<br>
 
-```
+```powershell
 .\scriptFinale flp wav
 ```
 [prima](img/prima.PNG)<br>
