@@ -1,15 +1,15 @@
 # ordinator
-## funzionamento
+## Funzionamento
 ---
 lo script serve per riodinare i file o semplicemente<br>
 fare una zip dei file desiderati.
 
 la sintassi è questa:
 ```
-.\scriptFinale [<estensioni>][<estensioni> -move]
+.\ordintor [<estensioni>][<estensioni> -move]
 ```
 
-### __default__
+### __Default__
 inserendo soltanto delle estensioni verrà creata una cartella di nome root,<br>
 dopo di che, per ogni estensione che abbaimo inserito come parametro, verrà creata<br>
 una sotto cartella in root con lo stesso nome. Poi tutti i file che si trovano nella<br>
@@ -27,7 +27,7 @@ script verrà _spostato_ nella sotto cartella di root che corrisponde alla propr
 in qualsiasi caso nella cartella root verrà creato un file di log<br>
 dove verranno scritte tutte le operazioni eseguite
 
-## esempi
+## Esempi
 ---
 ```
 .\scriptFinale docs html -move
