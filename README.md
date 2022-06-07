@@ -5,7 +5,7 @@ lo script serve per riodinare i file per estensione o semplicemente<br>
 fare una zip dei file desiderati.
 
 la sintassi è questa:
-```
+```powershell
 .\ordintor [<estensioni>][<estensioni> -move]
 ```
 
