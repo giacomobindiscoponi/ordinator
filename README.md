@@ -30,7 +30,7 @@ dove verranno scritte tutte le operazioni eseguite
 ## Esempi
 ---
 ```
-.\scriptFinale docs html -move
+.\scriptFinale flp wav -move
 ```
 [prima](img/prima.PNG)<br>
 [comando](img/comandoMove.PNG)<br>
@@ -38,7 +38,7 @@ dove verranno scritte tutte le operazioni eseguite
 [nella root](img/nellaRoot.PNG)<br>
 
 ```
-.\scriptFinale docs html
+.\scriptFinale flp wav
 ```
 [prima](img/prima.PNG)<br>
 [comando](img/comandoBackUp.PNG)<br>
