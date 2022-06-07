@@ -8,8 +8,12 @@ if($args[0] -eq ""){
             write-host $args[$i]
         }
         write-host "ovvero le estensioni che sono state scelte tramite parametro"  
-        write-host "verranno spostati se utiliziamo l'estensione -move o copiati e zippati se usimo "
-        write-host "l'estensione -backUp in una cartella che finisce con la propria estensione"
+        if($move){
+            write-host "verranno spostati"
+        }else{
+            write-host "verranno copiati e zippati"
+        }
+        write-host "in una cartella che finisce con la propria estensione"
     }else{
         if( -not (Test-Path ".\root")){
             #creazione cartella root
@@ -23,7 +27,7 @@ if($args[0] -eq ""){
             #logs
             $giorno = Get-Date -Format dd.MM.yy
             $ora = Get-Date -format hh:mm:ss
-            Add-Content .\logs.log "$giorno - $ora cartella root non creata perch� esiste gi�"
+            Add-Content .\logs.log "$giorno - $ora cartella root non creata perche esiste gia"
         }
         $root = Get-Location
 
@@ -32,7 +36,6 @@ if($args[0] -eq ""){
             $percorso = "root" + "\" + $args[$i];
             if( -not (Test-Path $percorso)){
                 #creazione cartelle
-                
                 mkdir $percorso
 
                 #logs
@@ -59,10 +62,11 @@ if($args[0] -eq ""){
                         $argomentoAttuale = $args[$i];
                         $destinazione = "$root" + "\root" + "\" + $argomentoAttuale + "\$element";
                         if( -not (Test-Path $destinazione)){
-                            #copia dei file nelle cartelle
                             if($move){
+                                #spostamento dei file nelle cartelle
                                 Move-Item $element.FullName -Destination $destinazione;
                             }else{
+                                #copia dei file nelle cartelle
                                 Copy-Item $element.FullName -Destination $destinazione;
                             }
             
@@ -72,10 +76,31 @@ if($args[0] -eq ""){
                             Add-Content .\logs.log "$giorno - $ora aggiunto file $element alla cartella $destinazione";
                             $controllo = "false";
                         }else{
-                            #logs
+                            #rinominamento
+                            #$nuovoNome = $destinazione;
+                            #$fileUguale = $destinazione;
+                            #$cont = 0;
+                            #$controlloSecondario = "false";
+                            #while ($controlloSecondario -eq "false") {
+                            #    if( -not (Test-Path $nuovoNome)){
+                            #        $controlloSecondario = "true";
+                            #        Rename-Item -Path $fileUguale -NewName $nuovoNome
+                            #        if($move){
+                            #            #spostamento dei file nelle cartelle
+                            #            Move-Item $element.FullName -Destination $destinazione;
+                            #        }else{
+                            #            #copia dei file nelle cartelle
+                            #            Copy-Item $element.FullName -Destination $destinazione;
+                            #        }
+                            #    }else{
+                            #        $cont++;
+                            #        $nuovoNome = $fileUguale.BaseName + "(" + $cont + ")" + "." + ((Split-Path $fileUguale -Leaf).Split('.')[1]);
+                            #    }
+                            #}
+                            #non funziona
                             $giorno = Get-Date -Format dd.MM.yy
                             $ora = Get-Date -format hh:mm:ss
-                            Add-Content .\logs.log "$giorno - $ora nella cartella e già presente un file con lo stesso nome"
+                            Add-Content .\logs.log "$giorno - $ora file $element ignorato per doppione nella cartella di arrivo"
                         }
                     }
                 }
@@ -97,5 +122,6 @@ if($args[0] -eq ""){
                 Add-Content .\logs.log "$giorno - $ora cartela non zippabile dato che i file esoste già un file .\backup"
             }
         }
+        Move-Item ".\logs.log" -Destination ".\root"
     }
 }
