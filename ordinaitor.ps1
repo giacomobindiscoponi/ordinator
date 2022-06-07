@@ -22,12 +22,12 @@ if($args[0] -eq ""){
             #logs
             $giorno = Get-Date -Format dd.MM.yy
             $ora = Get-Date -format hh:mm:ss
-            Add-Content .\logs.log "$giorno - $ora creata cartella root"
+            Add-Content .\root\logs.log "$giorno - $ora creata cartella root"
         }else{
             #logs
             $giorno = Get-Date -Format dd.MM.yy
             $ora = Get-Date -format hh:mm:ss
-            Add-Content .\logs.log "$giorno - $ora cartella root non creata perche esiste gia"
+            Add-Content .\root\logs.log "$giorno - $ora cartella root non creata perche esiste gia"
         }
         $root = Get-Location
 
@@ -41,20 +41,17 @@ if($args[0] -eq ""){
                 #logs
                 $giorno = Get-Date -Format dd.MM.yy
                 $ora = Get-Date -format hh:mm:ss
-                Add-Content .\logs.log "$giorno - $ora creata cartella $percorso"
+                Add-Content .\root\logs.log "$giorno - $ora creata cartella $percorso"
             }else{
                 $giorno = Get-Date -Format dd.MM.yy
                 $ora = Get-Date -format hh:mm:ss
-                Add-Content .\logs.log "$giorno - $ora la cartella root esiste già"
+                Add-Content .\root\logs.log "$giorno - $ora la cartella root esiste già"
             }
         }
         #lo script viene eseguito dalla cartella dove ci troviamo al momento
         ForEach($element in Get-ChildItem -r){
             $controllo = "true";
-            if($element.PSIsContainer){
-                #logs
-                Add-Content .\logs.log "$giorno - $ora ignorata cartella $element"  
-            }else{
+            if(-not $element.PSIsContainer){
                 #aggiunta file alla cartella
                 for($i = 0; $i -lt $args.length ; $i++){
                     $pathEstensione = ((Split-Path $element -Leaf).Split('.'));
@@ -73,7 +70,7 @@ if($args[0] -eq ""){
                             #logs
                             $giorno = Get-Date -Format dd.MM.yy
                             $ora = Get-Date -format hh:mm:ss
-                            Add-Content .\logs.log "$giorno - $ora aggiunto file $element alla cartella $destinazione";
+                            Add-Content .\root\logs.log "$giorno - $ora aggiunto file $element alla cartella $destinazione";
                             $controllo = "false";
                         }else{
                             #rinominamento
@@ -100,7 +97,7 @@ if($args[0] -eq ""){
                             #non funziona
                             $giorno = Get-Date -Format dd.MM.yy
                             $ora = Get-Date -format hh:mm:ss
-                            Add-Content .\logs.log "$giorno - $ora file $element ignorato per doppione nella cartella di arrivo"
+                            Add-Content .\root\logs.log "$giorno - $ora file $element ignorato per doppione nella cartella di arrivo"
                         }
                     }
                 }
@@ -108,7 +105,7 @@ if($args[0] -eq ""){
                     #se file viene ignorato
                     $giorno = Get-Date -Format dd.MM.yy
                     $ora = Get-Date -format hh:mm:ss
-                    Add-Content .\logs.log "$giorno - $ora file $element ignorato";
+                    Add-Content .\root\logs.log "$giorno - $ora file $element ignorato";
                 }
             }
         }
@@ -119,9 +116,8 @@ if($args[0] -eq ""){
                 #logs
                 $giorno = Get-Date -Format dd.MM.yy
                 $ora = Get-Date -format hh:mm:ss
-                Add-Content .\logs.log "$giorno - $ora cartela non zippabile dato che i file esoste già un file .\backup"
+                Add-Content .\root\logs.log "$giorno - $ora cartela non zippabile dato che i file esoste già un file .\backup"
             }
         }
-        Move-Item ".\logs.log" -Destination ".\root"
     }
 }
