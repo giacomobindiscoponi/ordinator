@@ -6,7 +6,7 @@ fare una zip dei file desiderati.
 
 la sintassi è questa:
 ```powershell
-.\ordintor [<estensioni>][<estensioni> -move]
+.\ordintor.ps1 [<estensioni>][<estensioni> -move]
 ```
 
 ### __Default__
@@ -30,7 +30,7 @@ dove verranno scritte tutte le operazioni eseguite
 ## Esempi
 ---
 ```powershell
-.\scriptFinale flp wav -move
+.\ordinator.ps1 flp wav -move
 ```
 [prima](img/prima.PNG)<br>
 [comando](img/comandoMove.PNG)<br>
@@ -38,7 +38,7 @@ dove verranno scritte tutte le operazioni eseguite
 [nella root](img/nellaRoot.PNG)<br>
 
 ```powershell
-.\scriptFinale flp wav
+.\ordinator.ps1 flp wav
 ```
 [prima](img/prima.PNG)<br>
 [comando](img/comandoBackUp.PNG)<br>
